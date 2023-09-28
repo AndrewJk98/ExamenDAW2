@@ -33,40 +33,26 @@
 	</div>
 
 	<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<table class="table table-bordered table-responsive">
-						<thead>
-						<ul>
-							<li style="display: inline-block;">🏠 Home | </li>
-							<li style="display: inline-block;">➕ Ofertas del dia | </li>
-							<li style="display: inline-block;">🛒 Carrito</li>
-						</ul>
-						</thead>
-						<tbody>
-						<div th:each="reg:${productos}" >
-							<tr>
-								<td colspan="5">
-									<img th:src="${reg.image}" alt="${reg.name}" style="width: 100px; height: 100px;">
-								</td>
-							</tr>
-							<tr><td th:text="${reg.category}"></td></tr>
-							<tr><td th:text="${reg.price}"></td></tr>
-							<tr></tr>
-							<tr><td th:text="${reg.name}"></td></tr>
-							<tr>
-								<td >
-									<button type="button" id="agregar-al-carrito-button" class="btn btn-primary">Agregar al carrito</button>
-									<a href="#" class="btn btn-success">Comprar</a>
-								</td>
-							</tr>
-							<tr></tr>
+		<ul>
+			<li style="display: inline-block;">🏠 Home | </li>
+			<li style="display: inline-block;">➕ Ofertas del día | </li>
+			<li style="display: inline-block;">🛒 Carrito</li>
+		</ul>
+		<div class="row">
+			<div th:each="reg:${productos}" class="col-md-4"> <!-- Set the class to col-md-4 -->
+				<div class="card" style="width: 18rem;">
+					<img th:src="${reg.image}" alt="${reg.name}" class="card-img-top" style="width: 100px; height: 100px;">
+					<div class="card-body">
+						<h5 class="card-title" th:text="${reg.name}"></h5>
+						<p class="card-text" th:text="${reg.category}">${reg.category}</p>
+						<p class="card-text" th:text="${reg.price}">${reg.price}</p>
+						<div class="card-actions">
+							<button type="button" id="agregar-al-carrito-button" class="btn btn-primary">Agregar al carrito</button>
+							<a href="#" class="btn btn-success">Comprar</a>
 						</div>
-						</tbody>
-					</table>
+					</div>
 				</div>
 			</div>
 		</div>
-
-	</body>
+	</div>
 </html>
